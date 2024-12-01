@@ -51,6 +51,11 @@ def require_password(func):
     wrapper.__name__ = func.__name__  # Ensure the route decorator works
     return wrapper
 
+# Home route for initial test
+@app.route('/home', methods=['GET'])
+def home():
+    return jsonify({"message": "Application working successfully!"}), 200
+
 # Create (Add Data)
 @app.route('/data', methods=['POST'])
 @require_password
