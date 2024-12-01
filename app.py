@@ -3,8 +3,12 @@ from pymongo import MongoClient
 from bson import ObjectId
 import os
 from bcrypt import hashpw, gensalt, checkpw
+from flask_cors import CORS  # Import CORS
 
 app = Flask(__name__)
+
+# Enable CORS for all routes or restrict to specific domains
+CORS(app)  # Change this to your allowed frontend URL
 
 # MongoDB Atlas Configuration
 MONGO_URI = os.getenv("MONGO_URL")
